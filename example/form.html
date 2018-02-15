@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/style.css">
+</HEAD>
+<script>
+
+
+    document.MyForm.addEventListener('submit', function(event) {
+
+    })
+</script>
+<body>
+<form name="MyForm" onsubmit="
+
+    document.MyForm2.name2.value=document.MyForm.name.value;
+    document.MyForm2.soname2.value=document.MyForm.soname.value;
+    document.MyForm2.fathername2.value=document.MyForm.fathername.value;
+    var visibles=MyForm2.querySelectorAll('.inputtext');
+    visibles.forEach(function(element){
+        element.style.display='block';
+    });
+    return false;">
+    Форма 1 <br>
+    <input class="inputtext" id="soname" placeholder="Введите фамилию">
+    <input class="inputtext" id="name" placeholder="Введите имя">
+    <input class="inputtext" id="fathername" placeholder="Введите отчество">
+    <input type="submit" class="inputtext" id="send" value="Отправить в форму 2">
+</form>
+
+<form name="MyForm2">
+    Форма 2 <br>
+    <input class="inputtext _get" id="soname2" disabled>
+    <input class="inputtext _get" id="name2" disabled>
+    <input class="inputtext _get" id="fathername2" disabled>
+</form>
+</body>
+</HTML>

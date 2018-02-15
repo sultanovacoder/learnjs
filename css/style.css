@@ -1,0 +1,13 @@
+.inputtext {
+    display: block;
+    margin: 5px;
+}
+
+form {
+    border: 1px green solid;
+    width: 175px;
+    padding: 5px;
+}
+._get{
+    display: none;
+}
