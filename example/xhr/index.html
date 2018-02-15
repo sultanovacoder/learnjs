@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/style.css">
+</HEAD>
+<body>
+    <input type="button" value="Click me! Жми давай!" onclick="loadPhones()">
+<script>
+    function loadPhones() {
+        var item = new XMLHttpRequest();
+
+        item.open('GET','phones.json',false); // Почему здесь false?
+
+        item.send();
+
+        if (item.status != 200 ) {
+            alert( item.status + ': ' + item.statusText );
+        } else {
+            alert ( item.responseText );
+        }
+    }
+</script>
+</body>
+</HTML>
