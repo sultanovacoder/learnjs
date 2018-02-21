@@ -5,6 +5,15 @@
     <title>Получить крестраж!</title>
 </head>
 <body>
-<input type="button" value="Нажми, чтобы получить крестраж" onclick="">
+
+<input type="button" value="Нажми, чтобы получить <крестраж>" id="btn__get-kre">
+<script>
+    window['btn__get-kre'].addEventListener('click', function() {
+        var getKre = new XMLHttpRequest();
+        getKre.open('GET', 'krestrazh') //инфо о настройке
+
+    })
+
+</script>
 </body>
 </html>
