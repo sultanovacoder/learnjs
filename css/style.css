@@ -8,6 +8,9 @@ form {
     width: 175px;
     padding: 5px;
 }
+.form__border_red {
+    border: 3px red solid;
+}
 ._get{
     display: none;
 }

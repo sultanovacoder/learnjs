@@ -1,15 +1,15 @@
 <HTML>
 <HEAD>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css">
 </HEAD>
 <body>
     <input type="button" value="Click me! Жми давай!" onclick="loadPhones()">
 <script>
+    //Почему скрипт находится в боди??? почему не в head?
     function loadPhones() {
         var item = new XMLHttpRequest();
 
-        item.open('GET','phones.json',false); // Почему здесь false?
+        item.open('GET','phones.json',false); // Почему здесь false? - означает синхронный запрос
 
         item.send();
 
@@ -18,6 +18,7 @@
         } else {
             alert ( item.responseText );
         }
+
     }
 </script>
 </body>

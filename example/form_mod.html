@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/style.css">
+</HEAD>
+
+<body>
+<form name="MyForm" class="form__border_red">
+    Форма 1 <br>
+    <input class="inputtext" id="soname" placeholder="Введите фамилию">
+    <input class="inputtext" id="name" placeholder="Введите имя">
+    <input class="inputtext" id="fathername" placeholder="Введите отчество">
+    <input type="submit" class="inputtext" id="send" value="Отправить в форму 2">
+</form>
+
+<form name="MyForm2" class="form__border_red">
+    Форма 2 <br>
+    <input class="inputtext _get" id="soname2" disabled>
+    <input class="inputtext _get" id="name2" disabled>
+    <input class="inputtext _get" id="fathername2" disabled>
+</form>
+<script>
+    var form2 = document.MyForm2,
+        form = document.MyForm;
+
+    // подписываемся на событие submit формы MyForm
+    form.addEventListener('submit', function(event) {
+
+        form2.soname2.value = form.soname.value;
+        form2.name2.value = form.name.value;
+        form2.fathername2.value = form.fathername.value;
+
+        var visibles = form2.querySelectorAll('.inputtext');
+        visibles.forEach(function(element){
+            element.style.display = 'inline-block';
+        });
+
+        event.preventDefault(); // не даем форме отправиться на сервер
+    })
+</script>
+</body>
+</HTML>
