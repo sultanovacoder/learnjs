@@ -9,14 +9,17 @@
 
 <input type="button" value="Нажми, чтобы получить <крестраж>" id="btn__get-kre">
 <textarea placeholder="Вывод крестража" id="text__kre"></textarea>
+<textarea placeholder="test"></textarea>
 <script>
     window['btn__get-kre'].addEventListener('click', function() {
         var urlKre = "img1.png";
         var getKre = new XMLHttpRequest();
-        getKre.open('GET', urlKre, false); //инфо о настройке
+        getKre.open('GET', urlKre); //инфо о настройке
         getKre.send(null);
         var textArea = document.getElementById('text__kre');
-        textArea.value = getKre.response;
+        getKre.onload = function() {
+            textArea.value = getKre.responseText;
+        };
     })
 </script>
 </body>
