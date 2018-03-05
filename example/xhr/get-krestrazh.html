@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Получить крестраж!</title>
+    <link rel="stylesheet" type="text/css" href="../css/get-kre.css">
 </head>
 <body>
 
 <input type="button" value="Нажми, чтобы получить <крестраж>" id="btn__get-kre">
+<textarea placeholder="Вывод крестража" id="text__kre"></textarea>
 <script>
     window['btn__get-kre'].addEventListener('click', function() {
+        var urlKre = "img1.png";
         var getKre = new XMLHttpRequest();
-        getKre.open('GET', 'krestrazh') //инфо о настройке
-
+        getKre.open('GET', urlKre, false); //инфо о настройке
+        getKre.send(null);
+        var textArea = document.getElementById('text__kre');
+        textArea.value = getKre.response;
     })
-
 </script>
 </body>
 </html>
