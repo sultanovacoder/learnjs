@@ -1,0 +1,20 @@
+.battery {
+    background-image: url('../calc-battery.png');
+    height: 20px;
+    border:2px solid black;
+}
+
+.battery:hover::after {
+    content: attr(data-title);
+    width: 100%;
+    display: inline-block;
+    margin-left: 240px;
+    border: 1px solid #bdbaba;
+    color: #595858;
+    background-color: white;
+}
+
+form {
+    width: 200px;
+    background-color: #5c5151;
+}
