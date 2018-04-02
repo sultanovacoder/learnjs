@@ -16,8 +16,8 @@
         }
 
     </script>
-    <button value="+">+</button>
-    <button value="-">-</button>
+    <button value="+" id="plus">+</button>
+    <button value="-" id="minus">-</button>
     <button value="=" id="equally">=</button>
 </div>
 
@@ -26,7 +26,22 @@
         var exp = document.getElementById('exp');
         document.getElementById('res').value = Number(exp.value);
         /*document.getElementById('res')[value] = 'Молодец! Получилось!';*/
-    })
+    });
+
+    for (var i=0;i<=9;i++) {
+        function fn(i) {
+            window['num'+i].addEventListener('click', function () {
+                document.getElementById('exp').value += i;
+            });
+        }
+        fn(i);
+    }
+    window['plus'].addEventListener('click', function () {
+        document.getElementById('exp').value += "+";
+    });
+    window['minus'].addEventListener('click', function () {
+        document.getElementById('exp').value += "-";
+    });
 </script>
 </body>
 </html>
