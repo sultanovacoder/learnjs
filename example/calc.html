@@ -6,14 +6,27 @@
     <link rel="stylesheet" type=text/css href="css/calc.css">
 </head>
 <body>
-<form>
+<div class="myform">
     <div class="battery" data-title=" <= солнечная батарея"></div>
-    <input placeholder="Результат" id="res"><br>
-    <button value="1">1</button>
+    <input placeholder="Выражение" class="lbl" id="exp"><br>
+    <input placeholder="Результат" class="lbl" id="res"><br>
+    <script>
+        for (var i=0;i<=9;i++) {
+            document.write('<button id="'+'num'+i+'" value="'+i+'">'+i+'</button>');
+        }
+
+    </script>
     <button value="+">+</button>
     <button value="-">-</button>
-    <button value="2">2</button>
-    <button value="=">=</button>
-</form>
+    <button value="=" id="equally">=</button>
+</div>
+
+<script>
+    window['equally'].addEventListener('click', function () {
+        var exp = document.getElementById('exp');
+        document.getElementById('res').value = Number(exp.value);
+        /*document.getElementById('res')[value] = 'Молодец! Получилось!';*/
+    })
+</script>
 </body>
 </html>
