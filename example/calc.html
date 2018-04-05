@@ -16,14 +16,17 @@
         }
 
     </script>
+    <button value="." id="shot">,</button>
     <button value="+" id="plus">+</button>
     <button value="-" id="minus">-</button>
     <button value="=" id="equally">=</button>
+    <button id="del">del</button>
 </div>
 
 <script>
+    var exp = document.getElementById('exp');
+    var res = document.getElementById('res');
     window['equally'].addEventListener('click', function () {
-        var exp = document.getElementById('exp');
         document.getElementById('res').value = Number(exp.value);
         /*document.getElementById('res')[value] = 'Молодец! Получилось!';*/
     });
@@ -41,6 +44,16 @@
     });
     window['minus'].addEventListener('click', function () {
         document.getElementById('exp').value += "-";
+    });
+
+    window['exp'].addEventListener('input',function() {
+        if (!isNaN(exp.value)) {
+            res.value = exp.value;
+        }
+    });
+    window['del'].addEventListener('click', function(){
+        exp.value = exp.value.slice(0,exp.value.length-1);
+        res.value = exp.value;
     });
 </script>
 </body>
