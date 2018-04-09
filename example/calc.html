@@ -6,55 +6,61 @@
     <link rel="stylesheet" type=text/css href="css/calc.css">
 </head>
 <body>
+<h1 class="title">Калькулятор</h1>
 <div class="myform">
     <div class="battery" data-title=" <= солнечная батарея"></div>
     <input placeholder="Выражение" class="lbl" id="exp"><br>
     <input placeholder="Результат" class="lbl" id="res"><br>
-    <script>
-        for (var i=0;i<=9;i++) {
-            document.write('<button id="'+'num'+i+'" value="'+i+'">'+i+'</button>');
-        }
-
-    </script>
-    <button value="." id="shot">,</button>
-    <button value="+" id="plus">+</button>
-    <button value="-" id="minus">-</button>
-    <button value="=" id="equally">=</button>
-    <button id="del">del</button>
+    <div class="btn__wrapper">
+        <script>
+            for (var i=0;i<=9;i++) {
+                document.write('<button id="'+'num'+i+'" value="'+i+'">'+i+'</button>');
+            }
+        </script>
+        <button value="." id="shot">,</button>
+        <button value="+" id="plus">+</button>
+        <button value="-" id="minus">-</button>
+        <button value="=" id="equally">=</button>
+        <button id="del">del</button>
+    </div>
 </div>
 
 <script>
     var exp = document.getElementById('exp');
     var res = document.getElementById('res');
-    window['equally'].addEventListener('click', function () {
-        document.getElementById('res').value = Number(exp.value);
-        /*document.getElementById('res')[value] = 'Молодец! Получилось!';*/
-    });
 
-    for (var i=0;i<=9;i++) {
-        function fn(i) {
+    for (var i = 0; i <= 9; i++) {
+        (function (i){
             window['num'+i].addEventListener('click', function () {
                 document.getElementById('exp').value += i;
             });
-        }
-        fn(i);
+        })(i);
     }
-    window['plus'].addEventListener('click', function () {
-        document.getElementById('exp').value += "+";
-    });
-    window['minus'].addEventListener('click', function () {
-        document.getElementById('exp').value += "-";
-    });
+    var act = [
+        ['plus','+'],
+        ['minus','-'],
+        ['shot','.'] // это удалить
+    ];
 
-    window['exp'].addEventListener('input',function() {
-        if (!isNaN(exp.value)) {
-            res.value = exp.value;
-        }
-    });
+    for (var j = 0; j <= 2; j++) {
+        (function (j) {
+            window[act[j][0]].addEventListener('click', function () {
+                document.getElementById('exp').value += [act[j][1]];
+            });
+        })(j);
+    }
+
     window['del'].addEventListener('click', function(){
         exp.value = exp.value.slice(0,exp.value.length-1);
-        res.value = exp.value;
     });
+
+    window['equally'].addEventListener('click', function(){
+        try {
+            res.value = eval(exp.value);
+        } catch (e) {
+            alert('выражение некорректно')
+        }
+    })
 </script>
 </body>
 </html>

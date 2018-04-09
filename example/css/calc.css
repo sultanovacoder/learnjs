@@ -2,6 +2,7 @@
     background-image: url('../calc-battery.png');
     height: 20px;
     border:2px solid black;
+    margin-bottom: 10px;
 }
 
 .battery:hover::after {
@@ -14,17 +15,29 @@
     background-color: white;
 }
 
-.lbl {
-
+.btn__wrapper {
+    display: inline-block;
+    margin: 10px 0;
+    width: 87px;
 }
 
 .myform {
     width: 200px;
     background-color: #282121;
+    border: 2px solid gray;
     position: absolute;
     text-align: center;
     left: 50%;
-    top: 0;
-
+    margin-left: -100px;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
+.title {
+    text-align: center;
+}
+
+button:hover {
+    background-color: #8484b5;
+    color: white;
+}
